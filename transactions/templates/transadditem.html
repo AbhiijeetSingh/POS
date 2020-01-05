@@ -1,0 +1,30 @@
+{% extends 'transbase.html' %}
+
+{% block content %}
+
+{{transdetail}}
+
+<form method="POST" action="">{% csrf_token %}
+    <input type="number" placeholder="Item ID" name='item_id'/>
+    <input type='number' placeholder="Item Quantity" name='item_quantity'/>
+    <input type="submit" value="Add"/>
+</form>
+
+<table align='center' border='1'>
+    <tr>
+        {% for x in tcol %}
+            <th>{{x}}</th>
+        {%endfor%}
+    </tr>
+    <tr>
+    {% for value in items_added %}
+        {% for obj in value %}
+        <td>             
+            {{obj}}
+        </td>
+        {% endfor %}
+    </tr>
+    {% endfor %}
+</table>
+<h1>Amount:{{amount}}</h1>
+{% endblock %}
