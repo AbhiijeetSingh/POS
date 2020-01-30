@@ -1,23 +1,25 @@
 {% extends 'transbase.html' %}
 {% block content %}
 
-<table align='center' border='1'>
-    <tr>
-        {% for x in tcol %}
-            <th>{{x}}</th>
-        {%endfor%}
-    </tr>
-    {% for value in record_instance %}
-    <tr>
-        <td>{{value.id}}</td>
-        <td>{{value.customer_phoneno}}</td>
-        <td>{{value.payment_date}}</td>
-        <td>{{value.cash}}</td>
-        <td>{{value.card}}</td>
-        <td>{{value.amount}}</td>
-    </tr>
-    {% endfor %}
-</table>
-
+<center>
+    <table align='center' border='1'>
+        <tr>
+            {% for x in tcol %}
+                <th>{{x}}</th>
+            {%endfor%}
+        </tr>
+        {% for value in record_instance %}
+        <tr>
+            <td>{{value.id}}</td>
+            <td>{{value.customer_phoneno}}</td>
+            <td>{{value.payment_date}}</td>
+            <td>{{value.cash}}</td>
+            <td>{{value.card}}</td>
+            <td>{{value.amount}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+<a href="." type="button" class="btn btn-lg btn-info">Back</a>
+</center>
 
 {% endblock %}
