@@ -5,10 +5,9 @@ class paymentdetails(models.Model):
     payment_date=models.DateTimeField( auto_now_add=True)
     cash=models.BooleanField(blank=True, default=True)
     card=models.BooleanField(blank=True)
+    amount=models.DecimalField(blank=True, decimal_places=2, max_digits=10000, null=True)
 
-class recordmodel(models.Model):
-    payment_id=models.ForeignKey('paymentdetails',on_delete=models.CASCADE)
-    amount=models.DecimalField(blank=False, decimal_places=2, max_digits=10000)
+    
 
 
 # Create your models here.

@@ -1,9 +1,23 @@
 {% extends 'transbase.html' %}
 {% block content %}
-<p>This is records.html</p>
-{% for ch in record_instance %}
-    {% for val in ch %}
-        {{val}}
+
+<table align='center' border='1'>
+    <tr>
+        {% for x in tcol %}
+            <th>{{x}}</th>
+        {%endfor%}
+    </tr>
+    {% for value in record_instance %}
+    <tr>
+        <td>{{value.id}}</td>
+        <td>{{value.customer_phoneno}}</td>
+        <td>{{value.payment_date}}</td>
+        <td>{{value.cash}}</td>
+        <td>{{value.card}}</td>
+        <td>{{value.amount}}</td>
+    </tr>
     {% endfor %}
-{% endfor %}
+</table>
+
+
 {% endblock %}

@@ -1,10 +1,10 @@
 from django.shortcuts import render, redirect
-from .form import paymentform,recordform
-from .models import paymentdetails, recordmodel
+from .form import paymentform
+from .models import paymentdetails
 from inventory.models import inventoryreq
 
-global items_added,record_instance,transdetail
-items_added,transdetail=[],[]
+global items_added
+items_added=[]
 
 def transchoice(request):
     return render(request, 'transchoice.html', {})
@@ -41,6 +41,9 @@ def addtransitem(request):
         
     for value in range(len(items_added)):
         amount=amount+(items_added[value][2]*items_added[value][4])
+        last_instance=paymentdetails.objects.last()
+        last_instance.amount=amount
+        last_instance.save()
 
     transdetail=paymentdetails.objects.last()
     context={
@@ -51,11 +54,22 @@ def addtransitem(request):
     }
     return render(request, 'transadditem.html', context)
 
+def payment_confirmed(request):
+    items_added.clear()
+    return render(request, 'paymentconfirmed.html')
+
+def cancel(request):
+    items_added.clear()
+    paymentdetails.objects.last().delete()
+    return render(request, "cancelled.html")
+
 def record(request):
+    trans_instance=paymentdetails.objects.all()
+    table_columns=["Transaction ID", "Customer Phone No.", "Transaction Date","Cash","Card","Amount"]
     context={
-        'record_instance':transdetail
+        'tcol':table_columns,
+        'record_instance':trans_instance
     }
-    print(context)
     return render(request, 'record.html',context)
     
 
