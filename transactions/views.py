@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .form import paymentform,recordform
 from .models import paymentdetails, recordmodel
 from inventory.models import inventoryreq
@@ -12,8 +12,9 @@ def transchoice(request):
 
 def makepayment(request):
     form=paymentform(request.POST or None)
-    if request.method=='POST':
+    if form.is_valid():
         form.save()
+        return redirect("makepayment/transadditem")
     context={
         'form':form
     }
@@ -41,7 +42,7 @@ def addtransitem(request):
     for value in range(len(items_added)):
         amount=amount+(items_added[value][2]*items_added[value][4])
 
-    transdetail=paymentdetails.objects.all()
+    transdetail=paymentdetails.objects.last()
     context={
         'items_added': items_added ,
         'tcol': inventorytablecolumn,

@@ -2,31 +2,38 @@
 
 {% block content %}
 
-{% for ch in transdetail %}
-    {{ch}}
-{% endfor %}
+Date & Time: {{transdetail.payment_date}}
+<center>
+    Transaction ID:{{transdetail.id}}<br>
+    Customer Phone No.: {{transdetail.customer_phoneno}}<br>
+    Cash:{{transdetail.cash}}<br>
+    Card:{{transdetail.card}}
 
-<form method="POST" action="">{% csrf_token %}
-    <input type="number" placeholder="Item ID" name="item_id"/>
-    <input type='number' placeholder="Item Quantity" name="item_quantity"/>
-    <input type="submit" value="Add"/>
-</form>
-
-<table align='center' border='1'>
-    <tr>
-        {% for x in tcol %}
-            <th>{{x}}</th>
-        {%endfor%}
-    </tr>
-    <tr>
-    {% for value in items_added %}
-        {% for obj in value %}
-        <td>             
-            {{obj}}
-        </td>
+    <table align='center' border='1'>
+        <tr>
+            {% for x in tcol %}
+                <th>{{x}}</th>
+            {%endfor%}
+        </tr>
+        <tr>
+        {% for value in items_added %}
+            {% for obj in value %}
+            <td>             
+                {{obj}}
+            </td>
+            {% endfor %}
+        </tr>
         {% endfor %}
-    </tr>
-    {% endfor %}
-</table>
-<h1>Amount:{{amount}}</h1> 
+    </table>
+
+    <form method="POST" action="">{% csrf_token %}
+        <input type="number" placeholder="Item ID" name="item_id"/>
+        <input type='number' placeholder="Item Quantity" name="item_quantity"/>
+        <input type="submit" value="Add"/>
+    </form>
+
+    <h1>Amount:{{amount}}</h1> 
+    <a href="paymesntconfirmed" type="button" class="btn btn-lg btn-info">Proceed</a>
+</center>
+
 {% endblock %}

@@ -2,7 +2,7 @@ from django.db import models
 
 class paymentdetails(models.Model):
     customer_phoneno=models.IntegerField(blank=False)
-    payment_date=models.DateTimeField(blank=True)
+    payment_date=models.DateTimeField( auto_now_add=True)
     cash=models.BooleanField(blank=True, default=True)
     card=models.BooleanField(blank=True)
 
