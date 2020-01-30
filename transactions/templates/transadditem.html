@@ -2,11 +2,13 @@
 
 {% block content %}
 
-{{transdetail}}
+{% for ch in transdetail %}
+    {{ch}}
+{% endfor %}
 
 <form method="POST" action="">{% csrf_token %}
-    <input type="number" placeholder="Item ID" name='item_id'/>
-    <input type='number' placeholder="Item Quantity" name='item_quantity'/>
+    <input type="number" placeholder="Item ID" name="item_id"/>
+    <input type='number' placeholder="Item Quantity" name="item_quantity"/>
     <input type="submit" value="Add"/>
 </form>
 
@@ -26,5 +28,5 @@
     </tr>
     {% endfor %}
 </table>
-<h1>Amount:{{amount}}</h1>
+<h1>Amount:{{amount}}</h1> 
 {% endblock %}

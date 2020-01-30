@@ -1,0 +1,9 @@
+{% extends 'transbase.html' %}
+{% block content %}
+<p>This is records.html</p>
+{% for ch in record_instance %}
+    {% for val in ch %}
+        {{val}}
+    {% endfor %}
+{% endfor %}
+{% endblock %}

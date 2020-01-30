@@ -1,5 +1,5 @@
 from django import forms
-from .models import paymentdetails
+from .models import paymentdetails,recordmodel
 
 class paymentform(forms.ModelForm):
     class Meta:
@@ -8,4 +8,12 @@ class paymentform(forms.ModelForm):
             'customer_phoneno',
             'cash',
             'card',
+            
+        ]
+class recordform(forms.ModelForm):
+    class Meta:
+        model=recordmodel
+        fields=[
+            'payment_id',
+            'amount',
         ]
