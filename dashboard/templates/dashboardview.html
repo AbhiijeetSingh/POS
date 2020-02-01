@@ -1,16 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+    {% load static %}
 <head>
-<meta charset="UTF-8">
- 
-<!-- If IE use the latest rendering engine -->
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
- 
-<!-- Set the page to the width of the device and set the zoon level -->
-<meta name="viewport" content="width = device-width, initial-scale = 1">
-<title>POS | Dashboard</title>
-<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
- 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <style>
 .jumbotron{
     background-color:rgb(20, 112, 218);
@@ -27,19 +21,75 @@
     margin-bottom: 0;
 }
 </style>
- 
+
+
 </head>
-<body>
-<div class="page-header">
-    <h1>POS | Dashboard</h1>
+<body background="{% static '23.jpg'%}">
+    <nav class="navbar navbar-expand-lg " style='background-color:rgba(0, 0, 0, 0.635)'>
+        <a class="navbar-brand" href="#"><img src="{% static 'compproj.jpg' %}" width='10%'>Point of Sales</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <div class="navbar-nav">
+            <a class="nav-link" href="{% url 'inventory:inven_home'%}">Inventory</a>
+           <a class="nav-link" href="{% url 'transactions:trans_home'%}">Transactions</a>
+           <a class="nav-link" href="#">About</a> 
+          </div>
+        </div>
+      </nav>  
+
+
+<div class="page-header container-fluid">
+        
+    <h1 align='center'>POS | Dashboard</h1><br>
+    <h6 class='text-muted ' align='center'>Point of Sales , designed for best performance </h6>
+    
+
 </div>
-<div class="container">
-    <a href="inventory">
-        <center><div class="jumbotron"><font size=28>Inventory</font></div></center>
-    </a>
-    <a href="transactions">
-        <center><div class="jumbotron"><font size=28>Transactions</font></div></center>
-    </a>
+<br>
+<br>
+<br><br><br><br><br>
+<div class="row container-fluid" >
+    
+       <div class='col-md-5 '>
+        <span class='border border-0'><br><br><br><br><br>
+            <p class='card-text' align='center'><font size='16'>Some text</font><br>
+                <a href="inventory"><button type='button' class='btn  btn-primary card-title btn-lg'>Inventory</button>
+                </a>
+            </p>
+        </span>
+       </div>
+    
+       <div  class='col-md-5 card container-fluid bg-transparent border-0'>
+                
+                        <img src="{% static 'download.png' %} " width='30%' class='img-thumbnail rounded card-img-top'>
+               
+                
+       </div>
+       <div class='col-md-0.5'></div>
 </div>
+       <br><br><br><br><br><br><br><br><br><br>
+<div class='row container-fluid'>
+    <div  class='col-sm-5 card container-fluid bg-transparent border-0'>
+                <p align='center'>
+                        <img src="{% static 'trans.jpg' %}" width='40%' class='img-thumbnail rounded '></p>
+    </div>
+        <div class='col-sm-7'>
+            <span class='border border-light'><br><br>
+                        
+                                
+                <p class='card-text' align='center'><font size='16'>Some text</font><br>
+                        <a href="transactions"><button type='button' class='btn  btn-primary btn-lg' >Transactions</button>
+                        </a>
+                </p>
+                              
+            </span>
+
+                        
+        </div>
+    </div>
+</div>
+<br><br><br><br><br>
 </body>
 </html>

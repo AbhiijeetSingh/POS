@@ -18,6 +18,7 @@ from django.urls import path,include
 from dashboard.views import dashboardview
 import inventory
 import transactions
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('',dashboardview),
@@ -25,3 +26,4 @@ urlpatterns = [
     path('transactions/',include('transactions.urls')),
     path('admin/', admin.site.urls),
 ]
+urlpatterns+=staticfiles_urlpatterns()

@@ -4,6 +4,6 @@ from .views import inventorytableview,inventoryadditemview
 app_name='inventory'
 
 urlpatterns=[
-    path('', inventorytableview ),
-    path('additem',inventoryadditemview)
+    path('', inventorytableview,name='inven_home' ),
+    path('additem',inventoryadditemview,name='inventory_additem')
 ]

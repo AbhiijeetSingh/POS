@@ -1,9 +1,11 @@
 {% extends 'inventorybase.html' %}
 
+{% load crispy_forms_tags %}
 {% block content %}
 <center>
-    <form method="POST" aciton='inventory'> {% csrf_token %}
-        {{ form.as_p }}
+    <form method="POST" > 
+        {% csrf_token %}
+        {{form|crispy}}
         <div class="btn-group btn-group-lg" role='group'>
             <input type="submit" value='Save' class="btn btn-info btn-lg"/>
             <a href='iventory/..' class='btn btn-info btn-lg'>Cancel</a>

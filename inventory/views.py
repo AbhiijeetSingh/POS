@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render,redirect
 from .models import inventoryreq
 from .form import additemform
 
@@ -16,7 +16,7 @@ def inventoryadditemview(request):
     form = additemform(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect("./")
+        return redirect(".")
     context={
         'form':form
     }
