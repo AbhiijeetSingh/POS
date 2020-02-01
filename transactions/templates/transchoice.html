@@ -1,21 +1,22 @@
 {% extends 'transbase.html' %}
 
 {% block content %}
-<br><br><br><br>
-<div class="container row">
-    <div class='col-md-2'></div>
-    <div class='col-md-4 card bg-transparent border-0'>
-        <a href="makepayment">
-            <center><div class="btn btn-lg bg-primary "><font size=28 color='white'>Make Payment</font></div></center>
-        </a>
-    </div>
-    <div class='col-md-2'></div>
-    <div class='col-md-4 card bg-transparent border-0'> 
-        <a href="records">
-            <center><div class="btn btn-lg bg-primary"><font size=28 color='white'>Records</font></div></center>
-        </a>
-    </div>
-</div>
 <br><br>
+<center>
+    <div class="container">
+        <a href="makepayment">
+            <div class='jumbotron'>
+                <font size=28 color='white'>Make Payment</font>
+            </div>
+        </a>
+        <a href="records">
+            <div class="jumbotron"> 
+                <font size=28 color='white'>Records</font>
+            </div>
+        </a>
+    </div>
+</center>
+<br>
 <center> <a href=".." class="btn btn-info btn-lg">Back</a></center>
+<br>
 {% endblock %}
