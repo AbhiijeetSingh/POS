@@ -14,7 +14,7 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path,include
+from django.urls import path, include
 from dashboard.views import dashboardview
 import inventory
 import transactions
@@ -22,10 +22,10 @@ from dashboard.views import about
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
-    path('',dashboardview),
+    path('', dashboardview),
     path('about', about),
-    path('inventory/',include('inventory.urls')),
-    path('transactions/',include('transactions.urls')),
+    path('inventory/', include('inventory.urls')),
+    path('transactions/', include('transactions.urls')),
     path('admin/', admin.site.urls),
 ]
-urlpatterns+=staticfiles_urlpatterns()
+urlpatterns += staticfiles_urlpatterns()

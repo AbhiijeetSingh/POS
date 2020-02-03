@@ -1,16 +1,16 @@
 {% extends 'transbase.html' %}
 {% block content %}
 <div class='row container-fluid'>
-        <div class='col-md-2'></div>
-        <div class='col-md-8'>
-            <table align='center' border='1' class='table table-hover table-bordered table-striped rounded'>
-            <thead class='thead-dark'> 
+    <div class='col-md-2'></div>
+    <div class='col-md-8'>
+        <table align='center' border='1' class='table table-hover table-bordered table-striped rounded'>
+            <thead class='thead-dark'>
                 <tr>
                     {% for x in tcol %}
                     <th>{{x}}</th>
                     {%endfor%}
                 </tr>
-        </thead> 
+            </thead>
             {% for value in record_instance %}
             <tr>
                 <td>{{value.id}}</td>
@@ -23,9 +23,9 @@
             {% endfor %}
         </table>
         <div class='col-md-2'></div>
-</div>
+    </div>
 
-<div class='container-fluid'>
-    <center> <a href="." class="btn btn-info btn-lg">Back</a></center>
-</div>
+    <div class='container-fluid'>
+        <center> <a href="." class="btn btn-info btn-lg">Back</a></center>
+    </div>
     {% endblock %}

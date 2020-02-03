@@ -3,18 +3,18 @@
 {% block content %}
 <div class='card bg-transparent border-0 container-fluid'>
     <div class='card-body'>
-       <p class='text-center'> Date & Time: {{transdetail.payment_date}}</p>
+        <p class='text-center'> Date & Time: {{transdetail.payment_date}}</p>
     </div>
 </div>
 
 <center>
     <div class='row'>
-       
-       <div class='col-md-6 card bg-transparent border-0'> 
+
+        <div class='col-md-6 card bg-transparent border-0'>
             <div class='card-body '>
                 <ul class='list-group'>
                     <li class='list-group-item bg-secondary text-light'>Transaction ID:{{transdetail.id}}</li>
-                    <li class='list-group-item bg-secondary text-light'>Customer Phone No.: {{transdetail.customer_phoneno}}</li>
+                    <li class='list-group-item bg-secondary text-light'>Customer Phone No.:{{transdetail.customer_phoneno}}</li>
                     <li class='list-group-item bg-secondary text-light'>Cash:{{transdetail.cash}}</li>
                     <li class='list-group-item bg-secondary text-light'>Card:{{transdetail.card}}</li>
                 </ul>
@@ -23,16 +23,16 @@
         <div class='col-md-5'>
             <table align='center' border='1' class='table table-striped table-bordered table-hover '>
                 <thead class='thead-dark'>
-                <tr>
-                    {% for x in tcol %}
+                    <tr>
+                        {% for x in tcol %}
                         <th>{{x}}</th>
-                    {%endfor%}
-                </tr>
+                        {%endfor%}
+                    </tr>
                 </thead>
                 <tr>
-                {% for value in items_added %}
+                    {% for value in items_added %}
                     {% for obj in value %}
-                    <td>             
+                    <td>
                         {{obj}}
                     </td>
                     {% endfor %}
@@ -43,39 +43,39 @@
     </div>
     <br><br>
 
-    
+
 
     <form method="POST" action="">
         {% csrf_token %}
         <div class='form-group form-row container-fluid'>
             <div class='col-sm-5'>
-                <input type="number" placeholder="Item ID" name="item_id" class='form-control'/>
+                <input type="number" placeholder="Item ID" name="item_id" class='form-control' />
             </div>
         </div>
         <div class="form-group form-row container-fluid">
             <div class='col-sm-5'>
-                <input type='number' class='form-control' placeholder="Item Quantity" name="item_quantity"/>
+                <input type='number' class='form-control' placeholder="Item Quantity" name="item_quantity" />
             </div>
         </div>
-            <div class='row container-fluid'>
-                <div class='col-sm'>
-                    <input type="submit" type='button' class="btn btn-lg btn-info" value="Add"/>
-                </div>
-                <div class='col-sm'>
-                    <br>
-                    <h1>Amount:{{amount}}</h1>
-                    <br>
-                </div>
-                <div class='col-sm'>
-                    <a href="paymentconfirmed" type="btn" class="btn btn-lg btn-info">Proceed</a>
-                    <a href="cancel" type="btn" class="btn btn-lg btn-info">Cancel</a>
-                </div>
+        <div class='row container-fluid'>
+            <div class='col-sm'>
+                <input type="submit" type='button' class="btn btn-lg btn-info" value="Add" />
             </div>
-           
-        
+            <div class='col-sm'>
+                <br>
+                <h1>Amount:{{amount}}</h1>
+                <br>
+            </div>
+            <div class='col-sm'>
+                <a href="paymentconfirmed" type="btn" class="btn btn-lg btn-info">Proceed</a>
+                <a href="cancel" type="btn" class="btn btn-lg btn-info">Cancel</a>
+            </div>
+        </div>
+
+
     </form>
-     
-    
+
+
 </center>
 
 {% endblock %}
