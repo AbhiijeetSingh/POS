@@ -18,10 +18,12 @@ from django.urls import path,include
 from dashboard.views import dashboardview
 import inventory
 import transactions
+from dashboard.views import about
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('',dashboardview),
+    path('about', about),
     path('inventory/',include('inventory.urls')),
     path('transactions/',include('transactions.urls')),
     path('admin/', admin.site.urls),
