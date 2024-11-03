@@ -1,3 +1,3 @@
 # POS (Point of sale)
 Django website 
-holy moly
+Best point of sale
